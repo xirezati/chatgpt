@@ -8,7 +8,7 @@ export const setting = {
 }
 
 export const message = `- 由 [OpenAI API (gpt-3.5-turbo)](https://platform.openai.com/docs/guides/chat)提供支持。
-- 由 [XirZati](https://www.xirzati.icu) 基于 [chatgpt-demo](https://github.com/ddiu8081/chatgpt-demo) 开发
+- 由 [XirZati](https://raw.githubusercontent.com/xirezati/images/main/wx2wm.png) 基于 [chatgpt-demo](https://github.com/ddiu8081/chatgpt-demo) 开发
 - 请节约访问公益网站，访问费用由XirZati承担。建议使用私人版，以免资金不足关闭网站。
 
 - 您在使用的过程中，应遵守所在地相关法规政策、用户协议、规则规范。

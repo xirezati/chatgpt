@@ -17,7 +17,7 @@ export const message = `- 由 [OpenAI API (gpt-3.5-turbo)](https://platform.open
 
 - ChatGPT是一个超强的AI，它会创作、写论文、答辩、编程等。
 
-- 如果本项目对你有所帮助,可以打赏给👉👉👉 [XirZati](https://www.xirzati.icu)
+- 如果本项目对你有所帮助,可以打赏给 [XirZati](https://www.xirzati.icu)
 
 - 如要买私人版，请联系微信：lIIlIIlIIIlIIlIIIll`
 

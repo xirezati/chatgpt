@@ -19,7 +19,7 @@
 
 <style>
   .sun {
-    fill: black;
+    fill: black;toggle(persistentTheme === "dark")
   }
   .moon {
     fill: transparent;
@@ -50,7 +50,7 @@
     toggle(persistentTheme === "dark")
   } else {
     darkSchema.addEventListener("change", listener)
-    toggle(darkSchema?.matches)
+    toggle(true)
   }
 
   function handleToggleTheme() {

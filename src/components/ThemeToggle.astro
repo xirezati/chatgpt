@@ -1,44 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16161a" />
+    <title>切换浅色和深色模式</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
 
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #16161a;
+      }
 
-<style>
-  .sun {
-    fill: black;
-  }
-  .moon {
-    fill: black;
-  }
-  :global(html.dark) .sun {
-    fill: black;
-  }
-  :global(html.dark) .moon {
-    fill: grey;
-  }
-</style>
+      .toggle-btn {
+        position: relative;
+        width: 60px;
+        height: 30px;
+        border-radius: 15px;
+        background-color: #f6f8fa;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
 
-<script is:inline>
-  const persistentTheme = localStorage.getItem("theme")
-  const darkSchema = window.matchMedia("(prefers-color-scheme: dark)")
+      .toggle-btn::before,
+      .toggle-btn::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        transition: transform 0.3s ease-in-out;
+      }
 
-  function listener() {
-    document.documentElement.classList.toggle("dark", darkSchema?.matches)
-  }
+      .toggle-btn::before {
+        background-color: #16161a;
+        transform: translateX(0);
+      }
 
-  if (persistentTheme) {
-    document.documentElement.classList.toggle(
-      "dark",
-      persistentTheme === "dark"
-    )
-  } else {
-    darkSchema.addEventListener("change", listener)
-    document.documentElement.classList.toggle("dark", darkSchema?.matches)
-  }
+      .toggle-btn::after {
+        background-color: #f6f8fa;
+        transform: translateX(30px);
+      }
 
-  function handleToggleTheme() {
-    const element = document.documentElement
-    element.classList.toggle("dark")
+      .toggle-btn.dark-mode::before {
+        background-color: #f6f8fa;
+        transform: translateX(-30px);
+      }
 
-    const isDark = element.classList.contains("dark")
-    darkSchema.removeEventListener("change", listener)
-    localStorage.setItem("theme", isDark ? "dark" : "dark")
-  }
-</script>
+      .toggle-btn.dark-mode::after {
+        background-color: #16161a;
+        transform: translateX(0);
+      }
+
+      .toggle-btn:hover {
+        background-color: #dcdde1;
+      }
+
+      .toggle-btn:focus {
+        outline: none;
+      }
+
+      .toggle-btn:focus-visible {
+        box-shadow: 0 0 0 2px #2d88ff;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button
+        class="toggle-btn dark-mode visually-hidden"
+        aria-label="切换为浅色模式"
+      >
+        切换模式
+      </button>
+    </div>
+
+    <script>
+      const toggleBtn = document.querySelector(".toggle-btn");
+
+      function handleToggleTheme() {
+        document.documentElement.classList.toggle("dark");
+        const currentTheme = document.documentElement.classList.contains(
+          "dark"
+        )
+          ? "dark"
+          : "light";
+        localStorage.setItem("theme", currentTheme);
+        const themeColor = currentTheme === "dark" ? "#16161a" : "#f6f8fa";
+        document.querySelector('meta[name="theme-color"]').setAttribute(
+          "content",
+          themeColor
+        );
+      }
+
+      toggleBtn.addEventListener("click", handleToggleTheme);
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        toggleBtn.textContent = "切换为浅色模式";
+        toggleBtn.setAttribute("aria-label", "切换为浅色模式");
+      } else {
+        document.documentElement.classList.remove("dark");
+        toggleBtn.textContent = "切换为深色模式";
+        toggleBtn.setAttribute("aria-label", "切换为深色模式");
+      }
+    </script>
+  </body>
+</html>

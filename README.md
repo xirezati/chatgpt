@@ -21,7 +21,7 @@
 
 ### 更多部署方案
 
-Astro 提供了很多部署方案，自行 [查看设置方法](https://docs.astro.build/zh-cn/guides/server-side-rendering/)，本项目主要针对 Vercel，故不多做解释。你也可以查看 [ddiu8081/chatgpt-demo](https://github.com/ddiu8081/chatgpt-demo/blob/main/astro.config.mjs) 的设置方法。
+Astro 提供了很多部署方案，自行 [查看设置方法](https://docs.astro.build/zh-cn/guides/server-side-rendering/)，本项目主要针对 Vercel，故不多做解释.
 
 - [Cloudflare](https://github.com/withastro/astro/tree/main/packages/integrations/cloudflare)
 - [Deno](https://github.com/withastro/astro/tree/main/packages/integrations/deno)
@@ -70,7 +70,7 @@ Astro 提供了很多部署方案，自行 [查看设置方法](https://docs.ast
 2. 修改 `prompts.md`。
 3. Pull Request 即可。
 
-如果你不懂这个操作，也可以直接在 Issues 提交你的 Prompts。目前大部分 Prompts 来自于 [awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)，当然，这个仓库大多数也是翻译的 [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts)，一并感谢。
+
 
 ### 要求
 
